@@ -21,13 +21,29 @@ import urllib.error
 def create_play_icon():
     """Create a play button icon file for shortcuts"""
     try:
-        # Create a simple play button icon using Windows built-in shell32.dll icons
-        # Icon index 137 in shell32.dll is a media play button
+        # Use custom play_icon.ico file if available
+        if getattr(sys, 'frozen', False):
+            # Running as compiled executable - icon should be in same directory as exe
+            exe_dir = os.path.dirname(sys.executable)
+            icon_path = os.path.join(exe_dir, "play_icon.ico")
+        else:
+            # Running as script - icon should be in same directory as script
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            icon_path = os.path.join(script_dir, "play_icon.ico")
+        
+        # Check if custom icon exists
+        if os.path.exists(icon_path):
+            print(f"✅ Using custom icon: {icon_path}")
+            return icon_path
+        
+        # Fallback to Windows built-in icon if custom icon not found
+        print("⚠️ Custom icon not found, using Windows built-in icon")
         icon_source = "shell32.dll,137"
         return icon_source
     except Exception as e:
         print(f"Could not create icon: {e}")
-        return None
+        # Fallback to Windows built-in icon
+        return "shell32.dll,137"
 
 def check_vlc_installation():
     """Check if VLC is installed on the system"""
