@@ -21,25 +21,30 @@ import urllib.error
 def create_play_icon():
     """Create a play button icon file for shortcuts"""
     try:
-        # Use custom play_icon.ico file if available
         if getattr(sys, 'frozen', False):
-            # Running as compiled executable - icon should be in same directory as exe
+            # Running as compiled executable
             exe_dir = os.path.dirname(sys.executable)
             icon_path = os.path.join(exe_dir, "play_icon.ico")
+            
+            # For standalone exe, the icon is embedded in the executable itself
+            # We can use the executable as the icon source directly
+            exe_path = sys.executable
+            print(f"✅ Using embedded icon from executable: {exe_path}")
+            return exe_path  # Windows can extract icon from .exe files
         else:
-            # Running as script - icon should be in same directory as script
+            # Running as script - look for icon file in same directory as script
             script_dir = os.path.dirname(os.path.abspath(__file__))
             icon_path = os.path.join(script_dir, "play_icon.ico")
-        
-        # Check if custom icon exists
-        if os.path.exists(icon_path):
-            print(f"✅ Using custom icon: {icon_path}")
-            return icon_path
-        
-        # Fallback to Windows built-in icon if custom icon not found
-        print("⚠️ Custom icon not found, using Windows built-in icon")
-        icon_source = "shell32.dll,137"
-        return icon_source
+            
+            # Check if custom icon exists
+            if os.path.exists(icon_path):
+                print(f"✅ Using custom icon file: {icon_path}")
+                return icon_path
+            
+            # Fallback to Windows built-in icon if custom icon not found
+            print("⚠️ Custom icon not found, using Windows built-in icon")
+            icon_source = "shell32.dll,137"
+            return icon_source
     except Exception as e:
         print(f"Could not create icon: {e}")
         # Fallback to Windows built-in icon
