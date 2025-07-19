@@ -1,4 +1,13 @@
-# Shreelock Video Player 🎬
+# Sh## ✨ Quick Start
+
+1. **Download** `Shreelock Video Player.exe` (single 11.34MB file - no installation needed)
+2. **Double-click** to run (VLC engine downloads automatically if needed) 
+3. **Click "Open File"** to load a video
+4. **Enjoy professional video playback!**
+5. **Create shortcuts**: Options → "Create Shortcuts" (automatically uses embedded icon)
+6. **Remove shortcuts**: Options → "Uninstall Shortcuts"
+
+> 🎯 **Perfect for Google Drive**: Upload just the single .exe file - no zip files or external dependencies needed!Video Player 🎬
 
 A professional desktop media player with advanced features, smart fullscreen controls, and automatic VLC engine management.
 
@@ -127,22 +136,39 @@ A professional desktop media player with advanced features, smart fullscreen con
 ## 📁 Project Structure
 
 ```
-My VLC/
-├── ShreelockVideoPlayer.exe    # Main executable (11.3MB)
-├── README.md                   # This documentation
-├── main.py                     # Source code (development)
-└── build.py                    # Build script (development)
+shreelock-video-player/
+├── Shreelock Video Player.exe  # Standalone executable (11.34MB) 
+├── main.py                     # Source code
+├── requirements.txt            # Python dependencies
+├── Shreelock Video Player.spec # PyInstaller build configuration
+├── play_icon.ico              # Custom icon (embedded in exe)
+└── README.md                  # This documentation
 ```
 
-## 🚀 Distribution Files
+## 🚀 Distribution & Deployment
 
-### Single Download Option
+### ✨ Standalone Executable
 
-- **`ShreelockVideoPlayer.exe`** (11.3MB)
-  - Complete standalone application
-  - Automatic VLC management
-  - No installation required
-  - Run from anywhere (USB, Downloads, etc.)
+- **File**: `Shreelock Video Player.exe` (11.34MB)
+- **Dependencies**: None - everything embedded
+- **Icon**: Embedded in executable (no external files needed)
+- **VLC Engine**: Auto-downloaded when first needed
+- **Installation**: None required - just download and run
+
+### 📤 Distribution Options
+
+1. **Google Drive/Cloud**: Upload single .exe file
+2. **Direct Download**: Share via any file hosting service  
+3. **USB/Portable**: Copy to any device and run
+4. **GitHub Releases**: Use the releases section
+
+### 🎯 Benefits of Standalone Distribution
+
+- ✅ **Single File**: No zip extraction needed
+- ✅ **Embedded Icon**: Shortcuts always have correct icon
+- ✅ **Professional**: Looks like commercial software
+- ✅ **User-Friendly**: One download, one click to run
+- ✅ **No Dependencies**: Everything included in 11.34MB
 
 ## 🔧 Advanced Features
 
